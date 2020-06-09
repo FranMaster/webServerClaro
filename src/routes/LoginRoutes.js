@@ -1,0 +1,59 @@
+let PCR = require('../models/pcrModels.js');
+let usuarios = require('../models/usuarioModel.js');
+const express = require('express');
+let app = express();
+var bodyParser = require('body-parser');
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json());
+
+
+app.post('/login', (req, res) => {
+
+    let body = req.body;
+    let user = usuarios.find((item) => item.email === body.email && item.password === body.password);
+    if (user === null) {
+        return res.status(400).json({
+            menssage: 'error',
+            data: {
+                menssage: 'user or password incorrect'
+            }
+
+        });
+    };
+    let punto = PCR.find((item) => item.email === body.email);
+    if (punto === null) {
+        return res.status(400).json({
+            mensagge: 'not found',
+            data: {
+                mensagge: 'Usuario sin Pcr Asigando'
+            }
+        })
+    }
+    let user2 = {
+        nombre: user.nombre,
+        apellido: user.apellido,
+        email: user.email,
+        rol: user.rol,
+        telefono: user.telefono
+    }
+
+
+    res.status(200).json({
+        mensagge: 'ok',
+        usuario: user2,
+        pcr: punto
+
+    });
+
+
+
+
+
+});
+
+
+
+module.exports = app;
