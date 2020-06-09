@@ -1,3 +1,4 @@
+let RECARGA = require('../models/RecargaModel.js');
 let PCR = require('../models/pcrModels.js');
 let usuarios = require('../models/usuarioModel.js');
 const express = require('express');
@@ -40,10 +41,25 @@ app.post('/login', (req, res) => {
         telefono: user.telefono
     }
 
+    let recargaDesdePunto = RECARGA.find((item) => item.NumeroARecargar === body.NumeroARecargar);
+    if (recargaDesdePunto === null) {
+        return res.status(400).json({
+            mensagge: 'not found',
+            data: {
+                mensagge: 'No se realizo la recarga'
+            }
+        })
+    }
+    let datosDeRecarga = {
+        NumeroARecargar: recargaDesdePunto.NumeroARecargar,
+        nombreDelPunto: recargaDesdePunto.nombreDelPunto,
+        monto: recargaDesdePunto.monto
 
+    }
     res.status(200).json({
         mensagge: 'ok',
-        usuario: user2,
+        usuario: datosDeRecarga,
+        datosusuario: user2,
         pcr: punto
 
     });
