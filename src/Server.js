@@ -5,6 +5,7 @@ let app = express();
 
 app.use(require('./routes/UsuariosRoutes'));
 app.use(require('./routes/LoginRoutes'));
+app.use(require('./routes/RecargasRoutes'));
 
 app.listen(process.env.PORT, () => {
     console.log('Server On: ' + process.env.PORT);
