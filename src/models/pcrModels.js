@@ -18,4 +18,4 @@ let PCR = [{
     }
 ];
 
-Module.exports = PCR;
+module.exports = PCR;

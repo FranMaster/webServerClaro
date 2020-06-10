@@ -19,7 +19,8 @@ app.post('/login', (req, res) => {
         return res.status(400).json({
             menssage: 'error',
             data: {
-                menssage: 'user or password incorrect'
+                menssage: 'user or password incorrect',
+                data: null
             }
 
         });
@@ -29,7 +30,8 @@ app.post('/login', (req, res) => {
         return res.status(400).json({
             mensagge: 'not found',
             data: {
-                mensagge: 'Usuario sin Pcr Asigando'
+                mensagge: 'Usuario sin Pcr Asigando',
+                data: null
             }
         })
     }
@@ -43,8 +45,11 @@ app.post('/login', (req, res) => {
 
     res.status(200).json({
         mensagge: 'ok',
-        datosusuario: user2,
-        pcr: punto
+        data: {
+            datosusuario: user2,
+            pcr: punto
+        }
+
 
     });
 
@@ -56,4 +61,4 @@ app.post('/login', (req, res) => {
 
 
 
-Module.exports = app;
+module.exports = app;

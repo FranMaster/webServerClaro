@@ -1,6 +1,6 @@
 let RECARGA = require('../models/RecargaModel.js');
 let PCR = require('../models/pcrModels.js');
-let usuarios = require('../models/usuarioModel.js');
+
 const express = require('express');
 let app = express();
 var bodyParser = require('body-parser');
@@ -10,40 +10,58 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json());
 
+//Realizar el guardado de la recarga
 app.post('/Recargas', (req, res) => {
 
     let body = req.body;
-    let recargaDesdePunto = RECARGA.find((item) => item.NumeroARecargar === body.NumeroARecargar);
-    if (recargaDesdePunto === null) {
-        return res.status(400).json({
-            mensagge: 'not found',
+    if (Object.keys(body).length === 0)
+        return res.status(403).json({
+            mensagge: 'error',
             data: {
-                mensagge: 'No se realizo la recarga'
+                mensagge: 'sin metadata'
             }
-        })
+        });
+    let recargaRealizada = {
+        nombreDelPunto: body.nombreDelPunto,
+        NumeroARecargar: body.NumeroARecargar,
+        monto: body.monto,
+        hora: body.hora,
+        fecha: body.fecha,
+        ubicacion: body.ubicacion
     }
-    //CONTRATO
-    let datosDeRecarga = {
-        NumeroARecargar: recargaDesdePunto.NumeroARecargar,
-        nombreDelPunto: recargaDesdePunto.nombreDelPunto,
-        monto: recargaDesdePunto.monto,
-        fecha: recargaDesdePunto.fecha,
-        hora: recargaDesdePunto.hora,
-        ubicacion: recargaDesdePunto.ubicacion
+    RECARGA.push(recargaRealizada);
 
-    }
-    res.status(200).json({
+    return res.status(200).json({
         mensagge: 'ok',
-        usuario: datosDeRecarga,
+        data: recargaRealizada
+    });
+})
 
+//Realizamos la peticion del listado de Recargas
+app.get('/Recargas', (req, res) => {
+    let body = req.body
+    if (Object.keys(body).length === 0)
+        return res.status(403).json({
+            mensagge: 'error',
+            data: {
+                mensagge: 'Pcr is Required '
+            }
+        });
+
+    let arrayr = [];
+    RECARGA.forEach(item => {
+        if (item.nombreDelPunto === body.nombreDelPunto)
+            arrayr.push(item)
     });
 
 
 
+    res.status(200).json({
+        mensagge: 'ok',
+        data: arrayr
+    });
+
+})
 
 
-});
-
-
-
-Module.exports = app;
+module.exports = app;
