@@ -14,6 +14,13 @@ app.use(bodyParser.json());
 app.post('/login', (req, res) => {
 
     let body = req.body;
+    if (Object.keys(body).length === 0)
+        return res.status(403).json({
+            mensagge: 'error',
+            data: {
+                mensagge: 'Ingrese todos los campos '
+            }
+        });
     let user = usuarios.find((item) => item.email === body.email && item.password === body.password);
     if (user === null) {
         return res.status(400).json({

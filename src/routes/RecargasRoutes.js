@@ -39,21 +39,24 @@ app.post('/Recargas', (req, res) => {
 
 //Realizamos la peticion del listado de Recargas
 app.get('/Recargas', (req, res) => {
-    let body = req.body
-    if (Object.keys(body).length === 0)
-        return res.status(403).json({
-            mensagge: 'error',
-            data: {
-                mensagge: 'Pcr is Required '
-            }
-        });
+    // let body = req.body
+    // if (Object.keys(body).length === 0)
+    //     return res.status(403).json({
+    //         mensagge: 'error',
+    //         data: {
+    //             mensagge: 'Pcr is Required '
+    //         }
+    //     });
 
-    let arrayr = [];
-    RECARGA.forEach(item => {
-        if (item.nombreDelPunto === body.nombreDelPunto)
-            arrayr.push(item)
-    });
+    // let arrayr = [];
+    // RECARGA.forEach(item => {
+    //     if (item.nombreDelPunto === body.nombreDelPunto)
+    //         arrayr.push(item)
+    // }
 
+
+    // );
+    let arrayr = RECARGA;
 
 
     res.status(200).json({
