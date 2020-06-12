@@ -22,7 +22,7 @@ app.post('/login', (req, res) => {
             }
         });
     let user = usuarios.find((item) => item.email === body.email && item.password === body.password);
-    if (user === null) {
+    if (!user) {
         return res.status(400).json({
             menssage: 'error',
             data: {
