@@ -1,0 +1,22 @@
+{
+  "name": "claroapp",
+  "version": "1.0.0",
+  "description": "Servicio de Gestion Claro Recargas",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/Server.js",
+    "nodemonR": "node ./src/Server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.18"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
