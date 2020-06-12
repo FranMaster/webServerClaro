@@ -5,7 +5,7 @@ let usuario = [{
         apellido: 'jimenez',
         rol: 'PCR',
         telefonoPersonal: '123456',
-        ping: '123'
+
     },
     {
         email: 'enoc@gmail.com',
@@ -14,7 +14,7 @@ let usuario = [{
         apellido: 'soto',
         rol: 'PCR',
         telefonoPersonal: '123456',
-        ping: '2232'
+
 
     }
 ];
