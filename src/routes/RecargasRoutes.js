@@ -22,13 +22,12 @@ app.post('/Recargas', (req, res) => {
             }
         });
     let recargaRealizada = {
-        nombreDelPunto: body.nombreDelPunto,
-        NumeroARecargar: body.NumeroARecargar,
-        monto: body.monto,
-        hora: body.hora,
-        fecha: body.fecha,
-        ubicacion: body.ubicacion
+
+        pcr: body.pcr,
+        data: body.data
     }
+
+
     RECARGA.push(recargaRealizada);
 
     return res.status(200).json({
@@ -51,14 +50,9 @@ app.get('/Recargas', (req, res) => {
 
     let arrayr = [];
     RECARGA.forEach(item => {
-            if (item.nombreDelPunto === body)
-                arrayr.push(item)
-        }
-
-
-    );
-
-
+        if (item.pcr.nombreDelPunto === body)
+            arrayr.push(item)
+    });
 
     res.status(200).json({
         mensagge: 'ok',
