@@ -24,7 +24,8 @@ app.post('/Recargas', (req, res) => {
     let recargaRealizada = {
 
         pcr: body.pcr,
-        data: body.data
+        data: body.data,
+        fecha: body.fecha
     }
 
 
