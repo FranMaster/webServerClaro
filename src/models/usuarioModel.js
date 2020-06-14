@@ -1,8 +1,8 @@
 let usuario = [{
-        email: 'fran@gmail.com',
-        password: '1234567',
-        nombre: 'francisco',
-        apellido: 'jimenez',
+        email: 'TomasGobet',
+        password: '1234',
+        nombre: 'Tomas',
+        apellido: 'Gobet',
         rol: 'PCR',
         telefonoPersonal: '123456',
 

@@ -1,7 +1,7 @@
 let PCR = [{
 
         nombreDelPunto: 'Tienda de Variedades',
-        numeroHabilitado: '31222',
+        numeroHabilitado: '2342544301',
         pin: '2232',
         email: 'enoc@gmail.com',
         direccion: 'Calle 26 # 13-14'
@@ -11,8 +11,8 @@ let PCR = [{
 
         nombreDelPunto: 'Centro Comercial Local 3 Cosmeticos',
         numeroHabilitado: '123456789',
-        pin: '9876',
-        email: 'cosmeticos@gmail.com',
+        pin: '5248',
+        email: 'Gobet',
         direccion: 'Calle 30 # 16-25'
 
     }
