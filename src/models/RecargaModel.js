@@ -1,9 +1,2 @@
-let RECARGA = [{
-    pcr: {
-        nombreDelPunto: 'Tienda de Variedades',
-        direccion: 'Calle 26 # 13-14'
-    },
-    data: 'dataMensajeprueba',
-    fecha: ''
-}];
+let RECARGA = [];
 module.exports = RECARGA;
