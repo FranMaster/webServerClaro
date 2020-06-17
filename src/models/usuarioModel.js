@@ -4,7 +4,7 @@ let usuario = [{
         nombre: 'Tomas',
         apellido: 'Gobet',
         rol: 'PCR',
-        telefonoPersonal: '123456',
+        telefonoPersonal: '123456'
 
     },
     {
@@ -13,8 +13,34 @@ let usuario = [{
         nombre: 'Enoc',
         apellido: 'soto',
         rol: 'PCR',
-        telefonoPersonal: '123456',
+        telefonoPersonal: '123456'
 
+    },
+    {
+        email: 'Maritza',
+        password: '1234',
+        nombre: 'Maritza',
+        apellido: 'Pcr',
+        rol: 'PCR',
+        telefonoPersonal: '123456'
+
+    },
+    {
+        email: 'Andres',
+        password: '1234',
+        nombre: 'Andres',
+        apellido: 'Pcr',
+        rol: 'PCR',
+        telefonoPersonal: '123456'
+
+    },
+    {
+        email: 'Ana',
+        password: '1234',
+        nombre: 'Ana',
+        apellido: 'Pcr',
+        rol: 'PCR',
+        telefonoPersonal: '123456'
 
     }
 ];
