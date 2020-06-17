@@ -30,7 +30,7 @@ let PCR = [{
         nombreDelPunto: 'Pcr Central2',
         numeroHabilitado: '2346557545',
         pin: '7034',
-        email: 'Maritza',
+        email: 'Mariza',
         direccion: 'Calle 30 # 16-25'
 
     },

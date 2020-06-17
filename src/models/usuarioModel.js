@@ -17,7 +17,7 @@ let usuario = [{
 
     },
     {
-        email: 'Maritza',
+        email: 'Mariza',
         password: '1234',
         nombre: 'Maritza',
         apellido: 'Pcr',
