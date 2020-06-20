@@ -4,6 +4,7 @@
  let app = express();
  //supuesta base de datos
 
+ app.use(express.static(__dirname + '/public'));
  app.use(require('./routes/UsuariosRoutes'));
  app.use(require('./routes/LoginRoutes'));
  app.use(require('./routes/RecargasRoutes'));

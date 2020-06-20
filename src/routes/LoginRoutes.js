@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.post('/login', (req, res) => {
 
     let body = req.body;
+    console.log(body);
     if (Object.keys(body).length === 0)
         return res.status(403).json({
             mensagge: 'error',
