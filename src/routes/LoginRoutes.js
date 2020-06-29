@@ -2,14 +2,33 @@ let RECARGA = require('../models/RecargaModel.js');
 let PCR = require('../models/pcrModels.js');
 let usuarios = require('../models/usuarioModel.js');
 const express = require('express');
+const hbs = require('hbs');
+const path = require('path');
 let app = express();
 var bodyParser = require('body-parser');
+const { Console } = require('console');
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json());
 
+
+app.use(express.static(__dirname + '/public'));
+
+// Express HBS engine
+hbs.registerPartials(path.resolve(__dirname,'../views/parciales'));
+app.set('views', path.resolve(__dirname, '../views'));
+app.set('view engine', 'hbs');
+
+
+app.get('/',(req,res)=>{
+    console.log('Directorio:')
+    console.log(path.resolve(__dirname,'../views/parciales'));
+    res.render('index',{
+        imagen: './images/img-01.png'
+    });
+});
 
 app.post('/login', (req, res) => {
 
